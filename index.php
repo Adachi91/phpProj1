@@ -1,10 +1,17 @@
 <?php
+    session_start();
+
+    if (session_data('init'))
+    {
+
+    } else {
+        $_SESSION['init'] = true;
+        $_SESSION['clicky'] = 0;
+    }
+
     $moo = "AHHHHH I'M HIDDEN HALP ME";
 
-    //if(isset($_GET['peeking']))
-        $getvar = $_GET['peeking'];
-    //else
-      //  $getvar = null;
+    $getvar = isset($_GET['peeking']) ? $_GET['peeking'] : null;
 
     if(testvar($getvar)) {
         switch($getvar) {
@@ -15,9 +22,20 @@
                 if(testtestvar(null))
                     die('peeek');
                 break;
+            case 2:
+                break;
             default:
                 break;
         }
+    }
+
+    
+    /**
+     * @return sessionydata
+     * Returns session data based on oh my god what have I done.
+     */
+    function session_data($var) {
+        return $_SESSION[$var];
     }
 
     function testtestvar($var) {
@@ -48,16 +66,21 @@
         <link rel="stylesheet" href="css/main.css">
         <script src="js/main.js" defer></script>
     </head>
-    <body>
-        <nav>
-            <ul class="navi">
+
+    <header class="topbar">
+        <div class="header-logo" aria-label="site logo"><a href=""><img src="img/logo.png" alt="Site Logo" /></a></div>
+        <nav aria-label="Main Navigation">
+            <ul class="links" aria-label="Links">
                 <li><a href="?peeking=0">Weee</a></li>
-                <li>Page 2</li>
-                <li>page$</li>
+                <li><a href="?peeking=1" rel="noopener">Page 2</a></li>
+                <li><a href="?peeking=2" rel="noopener">Page 3</a></li>
             </ul>
         </nav>
-        <main>
-            <div class="container">
+    </header>
+
+    <body>
+        <main aria-label="Main Content Body">
+            <div class="container" aria-label="container for main content body">
                 <?=$moo?>
             </div>
         </main>
