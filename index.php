@@ -3,13 +3,13 @@
 
     if (session_data('init'))
     {
-
+        $moo = "You have a session going! YAY!!! ~~~♥<br />You've clicked {$_SESSION['clicky']} times! Great Job! ☺";
     } else {
         $_SESSION['init'] = true;
         $_SESSION['clicky'] = 0;
+        $moo = "AHHHHH I'M HIDDEN HALP ME";
     }
 
-    $moo = "AHHHHH I'M HIDDEN HALP ME";
 
     $getvar = isset($_GET['peeking']) ? $_GET['peeking'] : null;
 
@@ -23,6 +23,7 @@
                     die('peeek');
                 break;
             case 2:
+                $_SESSION['clicky']++;
                 break;
             default:
                 break;
