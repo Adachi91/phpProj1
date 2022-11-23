@@ -1,0 +1,30 @@
+html, body {
+    margin:0;
+}
+
+.container {
+    width: 90%;
+    height:100%;
+    background-color:darkslateblue;
+    color: #fff;
+    margin:auto;
+    text-align: center;
+    padding: 1em 0px 1em 0px;
+}
+
+nav {
+    display: block;
+    background-color: rgb(91, 61, 139);
+}
+
+.navi {
+    /*display: none;*/
+    margin-bottom:0px;
+}
+
+.navi li {
+    line-height: 3rem;
+    display: inline-flex;
+    color: #f9f9f9;
+    padding: 0px 3px 0px 3px;
+}
